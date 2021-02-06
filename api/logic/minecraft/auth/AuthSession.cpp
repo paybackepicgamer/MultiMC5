@@ -24,6 +24,10 @@ bool AuthSession::MakeOffline(QString offline_playername)
         return false;
     }
     session = "-";
+    client_token = "ff64ff64ff64ff64ff64ff64ff64ff64";
+    access_token = "ff64ff64ff64ff64ff64ff64ff64ff64";
+    uuid = QString(QCryptographicHash::hash(offline_playername.toLocal8Bit(), QCryptographicHash::Md5).toHex());
+    
     player_name = offline_playername;
     status = PlayableOffline;
     return true;
